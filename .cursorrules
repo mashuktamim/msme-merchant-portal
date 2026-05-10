@@ -1,0 +1,43 @@
+# Merchant Portal Project Rules
+
+You are working on the Merchant Portal, a high-performance React application built with TanStack Router, TanStack Query, and TanStack Form.
+
+## Core Architectural Principles
+
+When working on this project, you **MUST** follow these modular patterns:
+
+1. **Routing Strategy**:
+   - Features must be organized into route groups (e.g., `(posts)`).
+   - Use the **Modular Route-Local** folder structure (`-api`, `-components`, `-hooks`, `-types`, `-utils`).
+   - Detailed rules: [routing.md](./docs/rules/routing.md)
+
+2. **Data Fetching Flow**:
+   - Use **TanStack Query (v5)**.
+   - Centralize keys in `query-keys.ts` and options in `query-options.ts`.
+   - Always prefetch data in route loaders using `queryClient.fetchQuery`. **Do not return from loader**.
+   - Components must use `useQuery` to access cached data.
+   - **Invalidate** queries in the `onSuccess` of every mutation.
+   - Detailed rules: [data-fetching.md](./docs/rules/data-fetching.md)
+
+3. **Form Handling**:
+   - Use **TanStack Form** + **Zod**.
+   - Follow the `Field` UI component pattern for all inputs.
+   - Detailed rules: [forms.md](./docs/rules/forms.md)
+
+4. **Component Design**:
+   - Use modern, premium aesthetics (dark mode, glassmorphism if applicable).
+   - Prioritize visual excellence and micro-animations.
+   - Avoid generic browser defaults.
+
+## Checklist for New Features
+
+- [ ] Created route group folder `(feature_name)`.
+- [ ] Created route-local folders (`-api`, `-hooks`, etc.) with `index.ts` barrel files.
+- [ ] Defined Zod schemas for all data models.
+- [ ] Implemented structured query keys and query options.
+- [ ] Prefetched data in the TanStack Router `loader` (without returning it).
+- [ ] Invalidate respective query keys on successful mutation.
+- [ ] Used TanStack Form for all user inputs.
+- [ ] Applied the centralized UI field pattern.
+
+Refer to the documents in `merchant-portal/docs/rules/` for exact implementation details and code snippets.
