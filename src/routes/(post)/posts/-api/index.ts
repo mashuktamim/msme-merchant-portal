@@ -1,5 +1,5 @@
 import axiosClient from '@/api/axios-client';
-import type { Post } from '@/features/posts/types';
+import type { Post } from '@/routes/(post)/posts/-types';
 
 export const getPosts = async (): Promise<Post[]> => {
   const response = await axiosClient.get<Post[]>('/posts');
@@ -8,5 +8,10 @@ export const getPosts = async (): Promise<Post[]> => {
 
 export const createPost = async (post: Post): Promise<Post> => {
   const response = await axiosClient.post<Post>('/posts', post);
+  return response.data;
+};
+
+export const getPost = async (id: number): Promise<Post> => {
+  const response = await axiosClient.get<Post>(`/posts/${id}`);
   return response.data;
 };

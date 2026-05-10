@@ -1,7 +1,7 @@
 import { useForm } from '@tanstack/react-form';
-import { PostSchema } from '@/features/posts/types';
-import type { Post } from '@/features/posts/types';
-import { useCreatePost } from '@/features/posts/hooks';
+import { PostSchema } from '@/routes/(post)/posts/-types';
+import type { Post } from '@/routes/(post)/posts/-types';
+import { useCreatePost } from '@/routes/(post)/posts/-hooks';
 import {
   Field,
   FieldLabel,
@@ -16,12 +16,14 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 
 export const PostForm = () => {
   const { mutate, isPending } = useCreatePost();
-  
+
+  const defaultValues: Post = {
+    title: '',
+    body: '',
+  };
+
   const form = useForm({
-    defaultValues: {
-      title: '',
-      body: '',
-    } as Post,
+    defaultValues,
     validators: {
       onSubmit: PostSchema,
     },

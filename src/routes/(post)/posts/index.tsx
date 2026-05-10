@@ -1,10 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { PostList } from '@/features/posts/components/PostList'
-import { PostForm } from '@/features/posts/components/PostForm'
-import { postsKeys } from '@/features/posts/hooks'
-import { getPosts } from '@/features/posts/api'
+import { PostList } from '@/routes/(post)/posts/-components/PostList'
+import { PostForm } from '@/routes/(post)/posts/-components/PostForm'
+import { postsKeys } from '@/routes/(post)/posts/-hooks'
+import { getPosts } from '@/routes/(post)/posts/-api'
 
-export const Route = createFileRoute('/posts')({
+export const Route = createFileRoute('/(post)/posts/')({
   loader: async ({ context: { queryClient } }) => {
     return queryClient.ensureQueryData({
       queryKey: postsKeys.lists(),

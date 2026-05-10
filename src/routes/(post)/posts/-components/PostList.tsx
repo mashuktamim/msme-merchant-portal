@@ -1,4 +1,5 @@
-import { usePosts } from '../hooks';
+import { Link } from '@tanstack/react-router';
+import { usePosts } from '../-hooks';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 
@@ -25,14 +26,21 @@ export const PostList = () => {
       <h2 className="text-xl font-bold">Posts</h2>
       <div className="grid gap-4 md:grid-cols-2">
         {posts?.slice(0, 10).map((post) => (
-          <Card key={post.id} className="hover:shadow-md transition-shadow">
-            <CardHeader>
-              <CardTitle className="text-lg line-clamp-1">{post.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground line-clamp-3">{post.body}</p>
-            </CardContent>
-          </Card>
+          <Link
+            key={post.id}
+            to="/posts/$postId"
+            params={{ postId: String(post.id) }}
+            className="block no-underline"
+          >
+            <Card className="hover:shadow-md transition-shadow cursor-pointer h-full border-muted-foreground/20 hover:border-primary/50">
+              <CardHeader>
+                <CardTitle className="text-lg line-clamp-1">{post.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground line-clamp-3">{post.body}</p>
+              </CardContent>
+            </Card>
+          </Link>
         ))}
       </div>
     </div>

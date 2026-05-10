@@ -12,7 +12,5 @@
   "scss.lint.unknownAtRules": "ignore",
   "files.associations": {
     "*.css": "tailwindcss"
-  },
-  "css.validate": false,
-  "scss.validate": false
+  }
 }
