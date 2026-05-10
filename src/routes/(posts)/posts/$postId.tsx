@@ -5,7 +5,7 @@ import { ArrowLeft } from 'lucide-react'
 import { createPostQueryOptions } from './-utils'
 import { useQuery } from '@tanstack/react-query'
 
-export const Route = createFileRoute('/(post)/posts/$postId')({
+export const Route = createFileRoute('/(posts)/posts/$postId')({
   loader: async ({ params: { postId }, context: { queryClient } }) => {
     const id = Number(postId)
     await queryClient.fetchQuery(createPostQueryOptions(id))

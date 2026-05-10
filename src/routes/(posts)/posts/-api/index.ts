@@ -1,5 +1,5 @@
 import axiosClient from '@/api/axios-client';
-import type { Post } from '@/routes/(post)/posts/-types';
+import type { Post } from '@/routes/(posts)/posts/-types';
 
 export const getPosts = async (): Promise<Post[]> => {
   const response = await axiosClient.get<Post[]>('/posts');
