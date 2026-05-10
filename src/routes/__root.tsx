@@ -6,11 +6,13 @@ import { Toaster } from '@/components/ui/sonner'
 import { Button } from '@/components/ui/button'
 
 import '../styles.css'
+import { NotFound } from '@/components/common/NotFound'
 
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient
- }>()({
+}>()({
   component: RootComponent,
+  notFoundComponent: () => <NotFound />,
 })
 
 function RootComponent() {
@@ -23,15 +25,15 @@ function RootComponent() {
               <span className="inline-block font-bold text-xl text-primary">MSME Portal</span>
             </Link>
             <div className="flex gap-6 text-sm font-medium">
-              <Link 
-                to="/" 
+              <Link
+                to="/"
                 className="transition-colors hover:text-primary text-muted-foreground"
                 activeProps={{ className: 'text-primary' }}
               >
                 Home
               </Link>
-              <Link 
-                to="/posts" 
+              <Link
+                to="/posts"
                 className="transition-colors hover:text-primary text-muted-foreground"
                 activeProps={{ className: 'text-primary' }}
               >
@@ -50,7 +52,7 @@ function RootComponent() {
       </main>
 
       <Toaster position="top-right" expand={true} richColors />
-      
+
       <TanStackDevtools
         config={{
           position: 'bottom-right',

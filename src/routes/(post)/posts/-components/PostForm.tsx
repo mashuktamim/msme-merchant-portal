@@ -11,7 +11,6 @@ import {
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { toast } from 'sonner';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 
 export const PostForm = () => {
@@ -30,11 +29,7 @@ export const PostForm = () => {
     onSubmit: async ({ value }) => {
       mutate(value, {
         onSuccess: () => {
-          toast.success('Post created successfully!');
           form.reset();
-        },
-        onError: () => {
-          toast.error('Failed to create post');
         },
       });
     },

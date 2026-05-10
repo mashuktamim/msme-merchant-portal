@@ -1,17 +1,15 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { PostList } from '@/routes/(post)/posts/-components/PostList'
 import { PostForm } from '@/routes/(post)/posts/-components/PostForm'
-import { postsKeys } from '@/routes/(post)/posts/-hooks'
-import { getPosts } from '@/routes/(post)/posts/-api'
+import { createPostsQueryOptions } from './-utils'
 
 export const Route = createFileRoute('/(post)/posts/')({
   loader: async ({ context: { queryClient } }) => {
-    return queryClient.ensureQueryData({
-      queryKey: postsKeys.lists(),
-      queryFn: getPosts,
-    })
+    await queryClient.fetchQuery(createPostsQueryOptions())
   },
   component: PostsPage,
+  pendingComponent: () => <div>Loading...</div>,
+  errorComponent: ({ error }) => <div>Error: {error.message}</div>,
 })
 
 function PostsPage() {
@@ -26,6 +24,7 @@ function PostsPage() {
         <aside className="lg:col-span-4">
           <PostForm />
         </aside>
+
         <main className="lg:col-span-8">
           <PostList />
         </main>
