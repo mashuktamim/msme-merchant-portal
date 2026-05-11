@@ -6,12 +6,16 @@ import { Toaster } from '@/components/ui/sonner'
 import { Button } from '@/components/ui/button'
 
 import '../styles.css'
+import { GlobalLoader } from '@/components/common/GlobalLoader'
+import { GlobalError } from '@/components/common/GlobalError'
 import { NotFound } from '@/components/common/NotFound'
 
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient
 }>()({
   component: RootComponent,
+  pendingComponent: () => <GlobalLoader />,
+  errorComponent: ({ error }) => <GlobalError error={error} />,
   notFoundComponent: () => <NotFound />,
 })
 

@@ -1,10 +1,9 @@
 import { Link } from '@tanstack/react-router';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { createPostsQueryOptions } from '../-utils/query-options';
-import { useQuery } from '@tanstack/react-query';
+import { usePosts } from '../-hooks';
 
 export const PostList = () => {
-  const { data: posts } = useQuery(createPostsQueryOptions())
+  const { data: posts } = usePosts();
 
   return (
     <div className="space-y-4 p-4">

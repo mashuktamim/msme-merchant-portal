@@ -54,7 +54,7 @@ export const Route = createFileRoute('/(posts)/posts/')({
 
 ## 4. Mutations & Invalidation
 
-- Wrap all `useMutation` calls in custom hooks located in the `-hooks/` directory.
+- Wrap all `useMutation` and `useQuery` calls in custom hooks located in the `-hooks/` directory.
 - **CRITICAL**: After a successful mutation, you **must** invalidate the respective query keys to ensure the UI stays in sync with the server.
 - Handle success/error feedback (e.g., `toast`) inside these hooks.
 - Use the `axiosClient` from `@/api/axios-client` for all API calls in the `-api/` directory.

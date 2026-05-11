@@ -22,6 +22,7 @@ export type Post = z.infer<typeof PostSchema>
 - Use the `useForm` hook from `@tanstack/react-form`.
 - Pass the Zod schema to the `validators.onSubmit` property.
 - Handle form submission using a `mutate` call from a custom hook.
+- Clear form state after successful submission.
 
 ## 3. UI Components (The "Field" Pattern)
 

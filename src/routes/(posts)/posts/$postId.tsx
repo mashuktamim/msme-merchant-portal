@@ -3,7 +3,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft } from 'lucide-react'
 import { createPostQueryOptions } from './-utils'
-import { useQuery } from '@tanstack/react-query'
+import { usePost } from './-hooks'
 
 export const Route = createFileRoute('/(posts)/posts/$postId')({
   loader: async ({ params: { postId }, context: { queryClient } }) => {
@@ -17,7 +17,7 @@ export const Route = createFileRoute('/(posts)/posts/$postId')({
 
 function PostDetailPage() {
   const { postId } = Route.useParams()
-  const { data: post } = useQuery(createPostQueryOptions(Number(postId)))
+  const { data: post } = usePost(Number(postId))
 
   return (
     <div className="container mx-auto py-8 px-4 max-w-2xl space-y-6">
