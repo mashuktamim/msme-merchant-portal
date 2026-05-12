@@ -1,7 +1,7 @@
 import { useForm } from '@tanstack/react-form';
-import { PostSchema } from '@/routes/(posts)/posts/-types';
-import type { Post } from '@/routes/(posts)/posts/-types';
-import { useCreatePost } from '@/routes/(posts)/posts/-hooks';
+import { PostSchema } from '../-types';
+import type { Post } from '../-types';
+import { useCreatePost } from '../-hooks';
 import {
   Field,
   FieldLabel,

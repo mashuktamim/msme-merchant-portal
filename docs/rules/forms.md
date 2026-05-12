@@ -20,9 +20,18 @@ export type Post = z.infer<typeof PostSchema>
 ## 2. TanStack Form Integration
 
 - Use the `useForm` hook from `@tanstack/react-form`.
-- Pass the Zod schema to the `validators.onSubmit` property.
+- **Do not use `validatorAdapter: zodValidator()`**. TanStack Form now integrates with Zod seamlessly.
+- Pass the Zod schema directly to the `validators.onSubmit` property.
 - Handle form submission using a `mutate` call from a custom hook.
-- Clear form state after successful submission.
+- Define `defaultValues` as a typed object rather than using type assertions.
+- Use `import type` for inferred types to satisfy ESLint rules.
+
+### Import Pattern
+
+```typescript
+import { loginSchema } from './-types'
+import type {LoginInput} from './-types';
+```
 
 ## 3. UI Components (The "Field" Pattern)
 

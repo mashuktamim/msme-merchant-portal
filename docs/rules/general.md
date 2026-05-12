@@ -12,7 +12,7 @@ The Merchant Portal is built with a focus on modern aesthetics, type-safety, and
 
 ## 2. Coding Standards
 
-- **TypeScript**: Use strict typing. Avoid `any`.
+- **TypeScript**: Use strict typing. Avoid `any`. Always use **`import type`** for TypeScript types and interfaces to prevent runtime overhead and satisfy linting rules.
 - **Imports**: Use the `@/` alias for absolute imports from the `src` directory.
 - **Naming**:
   - Components: PascalCase (e.g., `PostForm.tsx`).

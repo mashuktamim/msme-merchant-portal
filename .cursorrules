@@ -40,4 +40,10 @@ When working on this project, you **MUST** follow these modular patterns:
 - [ ] Used TanStack Form for all user inputs.
 - [ ] Applied the centralized UI field pattern.
 
-Refer to the documents in `merchant-portal/docs/rules/` for exact implementation details and code snippets.
+## TypeScript Best Practices
+
+- Use functional components with arrow functions or function declarations consistently.
+- Always use **`import type`** for TypeScript types/interfaces to prevent runtime overhead and satisfy linting rules.
+- Prefer `interface` for object shapes that might be extended, and `type` for unions or simple aliases.
+- This ensures better build performance and prevents circular dependencies.
+- Example: `import type { User } from './-types';`

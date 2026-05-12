@@ -1,9 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { PostList } from '@/routes/(posts)/posts/-components/PostList'
-import { PostForm } from '@/routes/(posts)/posts/-components/PostForm'
+import { PostList } from './-components/PostList'
+import { PostForm } from './-components/PostForm'
 import { createPostsQueryOptions } from './-utils'
 
-export const Route = createFileRoute('/(posts)/posts/')({
+export const Route = createFileRoute('/_authenticated/(posts)/posts/')({
   loader: async ({ context: { queryClient } }) => {
     await queryClient.fetchQuery(createPostsQueryOptions())
   },
